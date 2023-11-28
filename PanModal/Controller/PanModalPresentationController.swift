@@ -176,6 +176,10 @@ open class PanModalPresentationController: UIPresentationController {
 
         guard let containerView = containerView
             else { return }
+      
+        if self.panContainerView.frame == .zero {
+          self.adjustPresentedViewFrame()
+        }
 
         layoutBackgroundView(in: containerView)
         layoutPresentedView(in: containerView)
@@ -653,6 +657,9 @@ private extension PanModalPresentationController {
      */
     func adjust(toYPosition yPos: CGFloat) {
         presentedView.frame.origin.y = max(yPos, anchoredYPosition)
+      
+        let newHeight = presentedView.bounds.height - yPos
+        presentable?.panModalHeightChanged(to: newHeight)
         
         guard presentedView.frame.origin.y > shortFormYPosition else {
             backgroundView.dimState = .max

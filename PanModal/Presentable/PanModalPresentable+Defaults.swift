@@ -116,6 +116,10 @@ public extension PanModalPresentable where Self: UIViewController {
     func willTransition(to state: PanModalPresentationController.PresentationState) {
 
     }
+  
+    func panModalHeightChanged(to modalHeight: CGFloat) {
+      
+    }
 
     func panModalWillDismiss() {
 

@@ -221,6 +221,13 @@ public protocol PanModalPresentable: AnyObject {
     func willTransition(to state: PanModalPresentationController.PresentationState)
 
     /**
+     Notifies the delegate that the pan modal's height has updated to a new value.
+     
+     Default value is an empty implementation.
+     */
+    func panModalHeightChanged(to modalHeight: CGFloat)
+  
+    /**
      Notifies the delegate that the pan modal is about to be dismissed.
 
      Default value is an empty implementation.
