@@ -370,10 +370,6 @@ private extension PanModalPresentationController {
 
         guard let frame = containerView?.frame
             else { return }
-      
-        if self.panContainerView.frame == .zero {
-          self.adjustPresentedViewFrame()
-        }
 
         let adjustedSize = CGSize(width: frame.size.width, height: frame.size.height - anchoredYPosition)
         let panFrame = panContainerView.frame
